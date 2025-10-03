@@ -437,8 +437,6 @@ export default function Home() {
     
     if (THREE.SRGBColorSpace !== undefined) {
       videoTexture.colorSpace = THREE.SRGBColorSpace;
-    } else if (THREE.sRGBEncoding !== undefined) {
-      videoTexture.encoding = THREE.sRGBEncoding;
     }
     
     videoTexture.generateMipmaps = false;
@@ -567,9 +565,7 @@ export default function Home() {
       renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Use soft shadows for better quality
       
       // Set output encoding to sRGB for vibrant colors throughout the scene
-      if (THREE.OutputEncoding !== undefined) {
-        renderer.outputEncoding = THREE.sRGBEncoding;
-      } else if (THREE.ColorManagement !== undefined) {
+      if (THREE.ColorManagement !== undefined) {
         THREE.ColorManagement.enabled = true;
         renderer.outputColorSpace = THREE.SRGBColorSpace;
       }
